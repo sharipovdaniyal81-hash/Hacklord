@@ -1,5 +1,9 @@
--- Auto-download HacklordV3.rbxmx
-if not isfile("HacklordV3.rbxmx") then
+-- Auto-download HacklordV3.rbxmx into the executor's Workspace folder
+if not isfolder("Workspace") then
+    makefolder("Workspace")
+end
+
+if not isfile("Workspace/HacklordV3.rbxmx") then
     local success, data = pcall(function()
         return game:HttpGet("https://www.mediafire.com/file/pkowyq4di95cyl1/HacklordV3.rbxmx/file?dl=1")
     end)
@@ -7,19 +11,19 @@ if not isfile("HacklordV3.rbxmx") then
         warn("Failed to download HacklordV3.rbxmx")
         return
     end
-    writefile("HacklordV3.rbxmx", data)
+    writefile("Workspace/HacklordV3.rbxmx", data)
 end
 
-writefile("Layer1V3.mp3", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/Layer1V3.mp3"))
-writefile("Layer2V3.mp3", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/Layer2V3.mp3"))
-writefile("Layer3V3.mp3", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/Layer3V3.mp3"))
-writefile("ThemeV3.mp3", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/ThemeV3.mp3"))
-writefile("LMSV3.mp3", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/LMSV3.mp3"))
-writefile("Slash.ogg", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/Slash.ogg"))
-writefile("Entanglement.ogg", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/Entanglement.ogg"))
-writefile("MassInfection.ogg", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/MassInfection.ogg"))
-writefile("UnstableEye.ogg", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/UnstableEye.ogg"))
-writefile("RejuvenateTheRotten.ogg", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/RejuvenateTheRotten.ogg"))
+writefile("Workspace/Layer1V3.mp3", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/Layer1V3.mp3"))
+writefile("Workspace/Layer2V3.mp3", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/Layer2V3.mp3"))
+writefile("Workspace/Layer3V3.mp3", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/Layer3V3.mp3"))
+writefile("Workspace/ThemeV3.mp3", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/ThemeV3.mp3"))
+writefile("Workspace/LMSV3.mp3", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/LMSV3.mp3"))
+writefile("Workspace/Slash.ogg", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/Slash.ogg"))
+writefile("Workspace/Entanglement.ogg", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/Entanglement.ogg"))
+writefile("Workspace/MassInfection.ogg", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/MassInfection.ogg"))
+writefile("Workspace/UnstableEye.ogg", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/UnstableEye.ogg"))
+writefile("Workspace/RejuvenateTheRotten.ogg", game:HttpGet("https://github.com/ian49972/smth/raw/refs/heads/main/RejuvenateTheRotten.ogg"))
 
 local Players = game:GetService("Players")
 local Workspace = game:GetService("Workspace")
@@ -34,7 +38,7 @@ local PlayerGui = LocalPlayer:WaitForChild("PlayerGui")
 -- No choice menu, always use RIG
 local choice = "rig"
 
-local Object = game:GetObjects(getcustomasset("HacklordV3.rbxmx"))[1]
+local Object = game:GetObjects(getcustomasset("Workspace/HacklordV3.rbxmx"))[1]
 Object.Parent = Workspace
 
 local function getRelativeCFrame(item, referencePart)
@@ -412,11 +416,11 @@ local function setupCharacter(char)
 	musicFolder.Name = "HacklordMusic"
 	musicFolder.Parent = workspace
 
-	local layer1 = Instance.new("Sound"); layer1.SoundId = getcustomasset("Layer1V3.mp3"); layer1.Volume = 0.8; layer1.Looped = true; layer1.Parent = musicFolder
-	local layer2 = Instance.new("Sound"); layer2.SoundId = getcustomasset("Layer2V3.mp3"); layer2.Volume = 0.8; layer2.Looped = true; layer2.Parent = musicFolder
-	local layer3 = Instance.new("Sound"); layer3.SoundId = getcustomasset("Layer3V3.mp3"); layer3.Volume = 0.8; layer3.Looped = true; layer3.Parent = musicFolder
-	local theme = Instance.new("Sound"); theme.SoundId = getcustomasset("ThemeV3.mp3"); theme.Volume = 1; theme.Looped = true; theme.Parent = musicFolder
-	local lms = Instance.new("Sound"); lms.SoundId = getcustomasset("LMSV3.mp3"); lms.Volume = 1; lms.Looped = true; lms.Parent = musicFolder
+	local layer1 = Instance.new("Sound"); layer1.SoundId = getcustomasset("Workspace/Layer1V3.mp3"); layer1.Volume = 0.8; layer1.Looped = true; layer1.Parent = musicFolder
+	local layer2 = Instance.new("Sound"); layer2.SoundId = getcustomasset("Workspace/Layer2V3.mp3"); layer2.Volume = 0.8; layer2.Looped = true; layer2.Parent = musicFolder
+	local layer3 = Instance.new("Sound"); layer3.SoundId = getcustomasset("Workspace/Layer3V3.mp3"); layer3.Volume = 0.8; layer3.Looped = true; layer3.Parent = musicFolder
+	local theme = Instance.new("Sound"); theme.SoundId = getcustomasset("Workspace/ThemeV3.mp3"); theme.Volume = 1; theme.Looped = true; theme.Parent = musicFolder
+	local lms = Instance.new("Sound"); lms.SoundId = getcustomasset("Workspace/LMSV3.mp3"); lms.Volume = 1; lms.Looped = true; lms.Parent = musicFolder
 
 	local currentMusic = nil
 	local function stopAll() for _,s in pairs(musicFolder:GetChildren()) do s:Stop() end currentMusic = nil end
@@ -473,7 +477,7 @@ local function setupCharacter(char)
 
 		local function playAbilitySound(name)
 			local s = Instance.new("Sound")
-			s.SoundId = getcustomasset(name..".ogg")
+			s.SoundId = getcustomasset("Workspace/"..name..".ogg")
 			s.Volume = 1
 			s.Parent = currentHRP
 			s:Play()
